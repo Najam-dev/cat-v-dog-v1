@@ -1,0 +1,29 @@
+body{
+    background-color: #eee;
+}
+
+.form{
+    background-color: #eceaea;
+    
+}
+
+main{
+    height: 100%;
+    text-align: center;
+}
+
+nav{
+    background-color: #a0a0a0 !important;
+}
+
+
+form.button{
+    background-color: aqua !important;
+}
+
+.flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
