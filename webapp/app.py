@@ -35,14 +35,23 @@ def predict():
 
         # Make the prediction
         prediction = model.predict(test_input)
+        per = float(prediction * 100)
 
-         # Interpret the prediction result
-        if prediction[0][0] >= 0.5:
-            prediction_result = "The model predicts the image is a dog."
-        else:
-            prediction_result = "The model predicts the image is a cat."
+        # Convert the prediction to a percentage
+        per_dog = float(prediction[0][0] * 100)
+        per_cat = float((1 - prediction[0][0]) * 100)
 
-        # Render the index.html template with the prediction result
+        # Print the percentage confidence for both "dog" and "cat" predictions
+        prediction_result = ("The model predicts the image is {:.2f}% dog and {:.2f}% cat.".format(per_dog, per_cat))
+
+        #  # Interpret the prediction result
+        # if prediction[0][0] >= 0.5:
+        #     prediction_result = "The model predicts the image is a dog."
+        # else:
+        #     prediction_result = "The model predicts the image is a cat."
+
+        # # Render the index.html template with the prediction result
+        # prediction_result += " {:.2f}%".format(per)
         return render_template('index.html', prediction_result=prediction_result)
 
     return "No file uploaded."
